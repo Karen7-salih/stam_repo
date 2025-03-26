@@ -1,0 +1,19 @@
+name: CI Pipeline
+
+on: [push, pull_request]  # Runs when code is pushed or PR is created
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2  # Gets the latest code
+
+      - name: Install Dependencies
+        run: npm install  # Installs required packages
+
+      - name: Run Tests
+        run: npm test  # Runs the tests
+
+      - name: Build Project
+        run: npm run build  # Builds the app if needed
